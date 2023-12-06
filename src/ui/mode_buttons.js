@@ -24,6 +24,12 @@ module.exports = function (context, pane) {
         title: ' Help',
         alt: 'Help',
         behavior: help
+      },
+      {
+        icon: 'link',
+        title: ' Copy',
+        alt: 'Copy Static URL to this map',
+        behavior: copy_link
       }
     ];
 

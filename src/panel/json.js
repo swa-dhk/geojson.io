@@ -34,7 +34,7 @@ module.exports = function (context) {
         'opacity-0 text-white font-medium text-xs rounded text-left py-1 px-2 bg-mb-gray-dark transition-opacity duration-100'
       )
       .attr('role', 'tooltip')
-      .text('Copied!');
+      .text('Static Link Copied!');
 
     // tooltip arrow
     tooltip
@@ -77,8 +77,13 @@ module.exports = function (context) {
 
     button.on('click', () => {
       // copy to clipboard
-      navigator.clipboard.writeText(editor.getValue());
-
+      //navigator.clipboard.writeText(editor.getValue());
+	  navigator.clipboard.writeText(
+		window.location.origin //host
+		+ window.location.pathname //path
+		+ '#data=data:application/json,'
+		+ encodeURIComponent(JSON.stringify(window.api.data.all().map))
+	  );
       // set the button to a green checkmark
       buttonIcon
         .classed('fa-copy', false)
