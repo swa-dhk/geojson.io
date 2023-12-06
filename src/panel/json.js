@@ -77,8 +77,14 @@ module.exports = function (context) {
 
     button.on('click', () => {
       // copy to clipboard
-      navigator.clipboard.writeText(editor.getValue());
-
+      //navigator.clipboard.writeText(editor.getValue());
+	  navigator.clipboard.writeText(
+		window.location.origin //host
+		+ window.location.pathname //path
+		+ '#data=data:application/json,'
+		+ encodeURIComponent(JSON.stringify(window.api.data.all().map))
+	  );
+	  
       // set the button to a green checkmark
       buttonIcon
         .classed('fa-copy', false)
