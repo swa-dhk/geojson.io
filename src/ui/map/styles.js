@@ -44,5 +44,31 @@ module.exports = [
         }
       ]
     }
+  },
+  {
+    title: 'HKGov',
+    style: {
+      name: 'HKGov',
+      version: 1,
+      glyphs: 'mapbox://fonts/mapbox/{fontstack}/{range}.pbf',
+      sources: {
+        'hkgov-raster-tiles': {
+          type: 'raster',
+          tiles: ['https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/imagery/WGS84/{z}/{x}/{y}.png'],
+          tileSize: 256,
+          attribution:
+            '&copy; <a href="https://geodata.gov.hk">geodata.gov.hk</a>'
+        }
+      },
+      layers: [
+        {
+          id: 'hkgov-raster-tiles',
+          type: 'raster',
+          source: 'hkgov-raster-tiles',
+          minzoom: 0,
+          maxzoom: 22
+        }
+      ]
+    }
   }
 ];
